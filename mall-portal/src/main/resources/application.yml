@@ -1,0 +1,90 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: mall-portal
+    profiles:
+      active: dev #默认为开发环境
+    mvc:
+      pathmatch:
+        matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://localhost:3306/tc_mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password:
+    druid:
+      initial-size: 5 #连接池初始化大小
+      min-idle: 10 #最小空闲连接数
+      max-active: 20 #最大连接数
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" #不统计这些请求数据
+      stat-view-servlet: #访问监控网页的登录用户名和密码
+        login-username: druid
+        login-password: druid
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mall-port
+  redis:
+    host: localhost # Redis服务器地址
+    database: 0 # Redis数据库索引（默认为0）
+    port: 6379 # Redis服务器连接端口
+    password: # Redis服务器连接密码（默认为空）
+    timeout: 300ms # 连接超时时间（毫秒）
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    virtual-host: /mall
+#    username: mall
+#    password: mall
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:com/**/mapper/*.xml
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mall-portal-secret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: 'Bearer '  #JWT负载中拿到开头
+
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /swagger-ui/
+      - /swagger-resources/**
+      - /**/v2/api-docs
+      - /**/*.html
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.map
+      - /favicon.ico
+      - /druid/**
+      - /actuator/**
+      - /sso/**
+      - /home/**
+      - /product/**
+      - /brand/**
+      - /alipay/**
+
+logging:
+  level:
+    root: info
+    com.tc.mall: debug
+
+logstash:
+  host: localhost
+  enableInnerLog: false
+
+alipay:
+  gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+  appId: your appId
+  alipayPublicKey: your alipayPublicKey
+  appPrivateKey: your appPrivateKey
+  returnUrl: http://localhost:8060/#/pages/money/paySuccess
+  notifyUrl:
+
+

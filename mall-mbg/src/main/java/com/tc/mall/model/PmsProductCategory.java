@@ -1,75 +1,40 @@
 package com.tc.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 
-/**
- * 产品品类
- *
- * @author honggang.liu
- */
 public class PmsProductCategory implements Serializable {
-
-    /**
-     * id
-     */
     private Long id;
 
-    /**
-     * 品类名称
-     */
+    @ApiModelProperty(value = "上机分类的编号：0表示一级分类")
+    private Long parentId;
+
     private String name;
 
-    /**
-     * 分类级别
-     */
     @ApiModelProperty(value = "分类级别：0->1级；1->2级")
     private Integer level;
 
-    /**
-     * 产品数量
-     */
     private Integer productCount;
 
-    /**
-     * 产品单位
-     */
-    private String productUint;
+    private String productUnit;
 
-    /**
-     * 是否显示在导航栏
-     */
     @ApiModelProperty(value = "是否显示在导航栏：0->不显示；1->显示")
     private Integer navStatus;
 
-    /**
-     * 显示状态
-     */
     @ApiModelProperty(value = "显示状态：0->不显示；1->显示")
     private Integer showStatus;
 
-    /**
-     * 排序
-     */
     private Integer sort;
 
-    /**
-     * 图标
-     */
     @ApiModelProperty(value = "图标")
     private String icon;
 
-    /**
-     * 关键词
-     */
     private String keywords;
 
-    /**
-     * 描述
-     */
     @ApiModelProperty(value = "描述")
     private String description;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;
@@ -77,6 +42,14 @@ public class PmsProductCategory implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
     }
 
     public String getName() {
@@ -103,12 +76,12 @@ public class PmsProductCategory implements Serializable {
         this.productCount = productCount;
     }
 
-    public String getProductUint() {
-        return productUint;
+    public String getProductUnit() {
+        return productUnit;
     }
 
-    public void setProductUint(String productUint) {
-        this.productUint = productUint;
+    public void setProductUnit(String productUnit) {
+        this.productUnit = productUnit;
     }
 
     public Integer getNavStatus() {
@@ -157,5 +130,28 @@ public class PmsProductCategory implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", parentId=").append(parentId);
+        sb.append(", name=").append(name);
+        sb.append(", level=").append(level);
+        sb.append(", productCount=").append(productCount);
+        sb.append(", productUnit=").append(productUnit);
+        sb.append(", navStatus=").append(navStatus);
+        sb.append(", showStatus=").append(showStatus);
+        sb.append(", sort=").append(sort);
+        sb.append(", icon=").append(icon);
+        sb.append(", keywords=").append(keywords);
+        sb.append(", description=").append(description);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }
