@@ -1,7 +1,11 @@
 package com.tc.mall.portal.service.impl;
 
 import com.tc.mall.model.UmsMember;
+import com.tc.mall.portal.domain.MemberDetails;
 import com.tc.mall.portal.service.UmsMemberService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -72,7 +76,10 @@ public class UmsMemberServiceImpl implements UmsMemberService {
      */
     @Override
     public UmsMember getCurrentMember() {
-        return null;
+        SecurityContext ctx= SecurityContextHolder.getContext();
+        Authentication auth=ctx.getAuthentication();
+        MemberDetails memberDetails=(MemberDetails) auth.getPrincipal();
+        return memberDetails.getUmsMember();
     }
 
     /**
