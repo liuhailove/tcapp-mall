@@ -1,16 +1,10 @@
 package com.tc.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- * 订单购物车类目
- *
- * @author honggang.liu
- */
 public class OmsCartItem implements Serializable {
     private Long id;
 

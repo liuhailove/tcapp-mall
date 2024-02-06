@@ -1,15 +1,9 @@
 package com.tc.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 会员
- *
- * @author honggang.liu
- */
 public class UmsMember implements Serializable {
     private Long id;
 

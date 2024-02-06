@@ -42,10 +42,10 @@ public interface OmsCartItemService {
      *
      * @param id       商品id
      * @param memberId 会员ID
-     * @param quality  商品数量
+     * @param quantity  商品数量
      * @return 修改结果
      */
-    int updateQuality(Long id, Long memberId, Integer quality);
+    int updateQuality(Long id, Long memberId, Integer quantity);
 
     /**
      * 批量删除购物车中的商品

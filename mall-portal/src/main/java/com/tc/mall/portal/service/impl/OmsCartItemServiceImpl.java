@@ -134,13 +134,13 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
      *
      * @param id       商品id
      * @param memberId 会员ID
-     * @param quality  商品数量
+     * @param quantity  商品数量
      * @return 修改结果
      */
     @Override
-    public int updateQuality(Long id, Long memberId, Integer quality) {
+    public int updateQuality(Long id, Long memberId, Integer quantity) {
         OmsCartItem cartItem = new OmsCartItem();
-        cartItem.setQuantity(quality);
+        cartItem.setQuantity(quantity);
         OmsCartItemExample example = new OmsCartItemExample();
         example.createCriteria().andDeleteStatusEqualTo(0)
                 .andIdEqualTo(id)
