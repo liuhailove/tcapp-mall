@@ -175,6 +175,9 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
             cartPromotionItem.setReduceAmount(new BigDecimal(0));
             PmsSkuStock skuStock = getOriginalPrice(promotionProduct, item.getProductSkuId());
             if (skuStock != null) {
+                if(skuStock.getLowStock()==null){
+                    skuStock.setLowStock(0);
+                }
                 cartPromotionItem.setRealStock(skuStock.getStock() - skuStock.getLowStock());
             }
             cartPromotionItem.setIntegration(promotionProduct.getGiftPoint());

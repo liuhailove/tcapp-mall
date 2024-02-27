@@ -26,7 +26,7 @@ public class ConfirmOrderResult {
      * 用户收货地址列表
      */
     @ApiModelProperty("用户收货地址列表")
-    private List<UmsMemberReceiveAddress> memberReceiverAddresses;
+    private List<UmsMemberReceiveAddress> memberReceiveAddressList;
     /**
      * 用户可用优惠券列表
      */

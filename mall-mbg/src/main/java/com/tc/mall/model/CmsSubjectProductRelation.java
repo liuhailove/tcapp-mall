@@ -1,26 +1,16 @@
 package com.tc.mall.model;
 
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
-/**
- * 专题产品关系
- */
 public class CmsSubjectProductRelation implements Serializable {
-
-    /**
-     * id
-     */
     private Long id;
 
-    /**
-     * 专题
-     */
     private Long subjectId;
 
-    /**
-     * 产品Id
-     */
     private Long productId;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;
@@ -48,10 +38,15 @@ public class CmsSubjectProductRelation implements Serializable {
 
     @Override
     public String toString() {
-        return "CmsSubjectProductRelation{" +
-                "id=" + id +
-                ", subjectId=" + subjectId +
-                ", productId=" + productId +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", subjectId=").append(subjectId);
+        sb.append(", productId=").append(productId);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

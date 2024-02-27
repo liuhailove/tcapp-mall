@@ -189,7 +189,7 @@ public class UmsMemberCouponServiceImpl implements UmsMemberCouponService {
                 // 1->指定分类
                 // 计算指定分类商品的总价
                 List<Long> productCategoryIds = new ArrayList<>();
-                for (SmsCouponProductCategoryRelation categoryRelation : couponHistoryDetail.getCategoryRelationsList()) {
+                for (SmsCouponProductCategoryRelation categoryRelation : couponHistoryDetail.getCategoryRelationList()) {
                     productCategoryIds.add(categoryRelation.getProductCategoryId());
                 }
                 BigDecimal totalAmount = calcTotalAmountByproductCategoryId(cartItemList, productCategoryIds);

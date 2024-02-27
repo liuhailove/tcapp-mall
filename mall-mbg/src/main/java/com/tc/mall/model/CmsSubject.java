@@ -1,102 +1,49 @@
 package com.tc.mall.model;
 
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 专题
- *
- * @author honggang.liu
- */
 public class CmsSubject implements Serializable {
-
-    /**
-     * id
-     */
     private Long id;
 
-    /**
-     * 品类ID
-     */
     private Long categoryId;
 
-    /**
-     * 标题
-     */
     private String title;
 
-    /**
-     * 专题主图
-     */
     @ApiModelProperty(value = "专题主图")
     private String pic;
 
-    /**
-     * 关联产品数量
-     */
     @ApiModelProperty(value = "关联产品数量")
     private Integer productCount;
 
-    /**
-     * 推荐状态
-     */
     private Integer recommendStatus;
 
-    /**
-     * 创建时间
-     */
     private Date createTime;
 
-    /**
-     * 收藏数量
-     */
     private Integer collectCount;
 
-    /**
-     * 浏览数量
-     */
     private Integer readCount;
 
-    /**
-     * 评论数量
-     */
     private Integer commentCount;
 
-    /**
-     * 画册图片用逗号分割
-     */
     @ApiModelProperty(value = "画册图片用逗号分割")
     private String albumPics;
 
-    /**
-     * 描述
-     */
     private String description;
 
-    /**
-     * 显示状态
-     */
     @ApiModelProperty(value = "显示状态：0->不显示；1->显示")
     private Integer showStatus;
 
-    /**
-     * 转发数
-     */
     @ApiModelProperty(value = "转发数")
     private Integer forwardCount;
 
-    /**
-     * 专题分类名称
-     */
     @ApiModelProperty(value = "专题分类名称")
     private String categoryName;
 
-    /**
-     * 内容
-     */
     private String content;
+
+    private static final long serialVersionUID = 1L;
 
     public Long getId() {
         return id;
@@ -228,23 +175,28 @@ public class CmsSubject implements Serializable {
 
     @Override
     public String toString() {
-        return "CmsSubject{" +
-                "id=" + id +
-                ", categoryId=" + categoryId +
-                ", title='" + title + '\'' +
-                ", pic='" + pic + '\'' +
-                ", productCount=" + productCount +
-                ", recommendStatus=" + recommendStatus +
-                ", createTime=" + createTime +
-                ", collectCount=" + collectCount +
-                ", readCount=" + readCount +
-                ", commentCount=" + commentCount +
-                ", albumPics='" + albumPics + '\'' +
-                ", description='" + description + '\'' +
-                ", showStatus=" + showStatus +
-                ", forwardCount=" + forwardCount +
-                ", categoryName='" + categoryName + '\'' +
-                ", content='" + content + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", id=").append(id);
+        sb.append(", categoryId=").append(categoryId);
+        sb.append(", title=").append(title);
+        sb.append(", pic=").append(pic);
+        sb.append(", productCount=").append(productCount);
+        sb.append(", recommendStatus=").append(recommendStatus);
+        sb.append(", createTime=").append(createTime);
+        sb.append(", collectCount=").append(collectCount);
+        sb.append(", readCount=").append(readCount);
+        sb.append(", commentCount=").append(commentCount);
+        sb.append(", albumPics=").append(albumPics);
+        sb.append(", description=").append(description);
+        sb.append(", showStatus=").append(showStatus);
+        sb.append(", forwardCount=").append(forwardCount);
+        sb.append(", categoryName=").append(categoryName);
+        sb.append(", content=").append(content);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }
