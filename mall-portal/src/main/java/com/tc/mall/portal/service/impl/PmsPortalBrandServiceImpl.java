@@ -49,8 +49,8 @@ public class PmsPortalBrandServiceImpl implements PmsPortalBrandService {
      */
     @Override
     public List<PmsBrand> recommendList(Integer pageNum, Integer pageSize) {
-        int offset=(pageNum-1)*pageSize;
-        return homeDao.getRecommendBrandList(offset,pageSize);
+        int offset = (pageNum - 1) * pageSize;
+        return homeDao.getRecommendBrandList(offset, pageSize);
     }
 
     /**
@@ -74,12 +74,12 @@ public class PmsPortalBrandServiceImpl implements PmsPortalBrandService {
      */
     @Override
     public CommonPage<PmsProduct> productList(Long brandId, Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
-        PmsProductExample example=new PmsProductExample();
+        PageHelper.startPage(pageNum, pageSize);
+        PmsProductExample example = new PmsProductExample();
         example.createCriteria().andDeleteStatusEqualTo(0)
                 .andPublishStatusEqualTo(1)
                 .andBrandIdEqualTo(brandId);
-        List<PmsProduct> productList=productMapper.selectByExample(example);
+        List<PmsProduct> productList = productMapper.selectByExample(example);
         return CommonPage.restPage(productList);
     }
 }

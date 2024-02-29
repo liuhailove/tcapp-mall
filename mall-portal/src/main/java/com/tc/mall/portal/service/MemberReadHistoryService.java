@@ -1,7 +1,6 @@
 package com.tc.mall.portal.service;
 
-import com.github.pagehelper.Page;
-import com.tc.mall.portal.domain.MemberReadHistory;
+import com.tc.mall.model.UmsMemberReadHistory;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public interface MemberReadHistoryService {
      * @param memberReadHistory 会员浏览历史
      * @return 操作影响行数
      */
-    int create(MemberReadHistory memberReadHistory);
+    int create(UmsMemberReadHistory memberReadHistory);
 
     /**
      * 批量删除浏览记录
@@ -35,7 +34,7 @@ public interface MemberReadHistoryService {
      * @param pageSize 分页大小
      * @return 分页数
      */
-    Page<MemberReadHistory> list(Integer pageNum, Integer pageSize);
+    List<UmsMemberReadHistory> list(Integer pageNum, Integer pageSize);
 
     /**
      * 清空浏览记录
